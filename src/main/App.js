@@ -1,26 +1,46 @@
 import React from 'react';
-import logo from '../res/images/logo.svg';
-import '../res/styles/App.css';
+import * as DogAPI from './utils/DogAPI';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    loading: false,
+    breedList: [],
+    selectedBreed: null
+  };
+
+  componentWillMount() {
+    DogAPI.getBreedList()
+      .then((breedList) => this.setState({ breedList }))
+      .catch(console.error);
+  }
+
+  render () {
+    // TODO: https://react-bootstrap.github.io/components/dropdowns/
+    const { breedList } = this.state;
+
+    return (
+      <main>
+
+        {/* TODO: move ddl to an standalone component */}
+        <select>
+          <option className="placeholder" disabled>- Choose a breed -</option>
+          {breedList.map(breed => {
+            if (breed.subtypes.length > 0) {
+              console.log(`${breed.name} has ${breed.subtypes.length} subtypes`);
+              return breed.subtypes.map(subtype => (
+                <option key={`${breed.name}-${subtype}`} value={`${breed.name}-${subtype}`}>
+                  {subtype} {breed.name}
+                </option>
+              ));
+            } else {
+              return <option key={breed.name} value={breed.name}>{breed.name}</option>;
+            }
+          })}
+        </select>
+      </main>
+    );
+  }
+
 }
 
 export default App;
