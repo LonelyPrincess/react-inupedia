@@ -26,10 +26,15 @@ class App extends React.Component {
     return (
       <main>
 
-        <p>Current selection: { selectedBreed || '-' }</p>
+        <header className="logo">
+          <span>inu</span>
+          <i className="icon-test"></i>
+          <span>pedia</span>
+        </header>
 
         {/* TODO: move ddl to an standalone component */}
-        <select value={this.state.selectedBreed} onChange={this.onBreedSelected}>
+        <select className="breed-selector"
+          value={this.state.selectedBreed} onChange={this.onBreedSelected}>
           <option value="" className="placeholder" disabled>- Choose a breed -</option>
           {breedList.map(breed => {
             if (breed.subtypes.length > 0) {
@@ -43,6 +48,15 @@ class App extends React.Component {
             }
           })}
         </select>
+
+        {/* TODO: create another component to display results */}
+        <section className="breed-data">
+          <pre>Current selection: <b>{ selectedBreed || '-' }</b></pre>
+        </section>
+
+        <footer>
+          <a href="http://github.com/LonelyPrincess">GitHub</a> - <a href="http://flaticon.com">FlatIcon</a>
+        </footer>
       </main>
     );
   }

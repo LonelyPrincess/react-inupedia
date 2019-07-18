@@ -1,13 +1,62 @@
-body {
+@import url('https://fonts.googleapis.com/css?family=Underdog&display=swap');
+
+html, body, #root {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: lightgoldenrodyellow;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  color: #3086cd;
+  font-size: 50px;
+  margin-bottom: 2rem;
+  font-family: 'Underdog', cursive;
+}
+
+.logo span:first-child {
+  color: #ffb531;
+}
+
+.icon-test {
+  width: 70px;
+  height: 70px;
+  background-size: contain;
+  background-image: url('../tmp/shiba.svg');
+  background-position-x: center;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+}
+
+section.breed-data {
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+.breed-selector {
+  width: 100%;
+  max-width: 450px;
 }
