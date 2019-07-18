@@ -51,12 +51,29 @@ main {
   background-repeat: no-repeat;
 }
 
-section.breed-data {
-  flex-grow: 1;
-  padding: 1rem;
-}
-
 .breed-selector {
   width: 100%;
   max-width: 450px;
+}
+
+section.breed-data {
+  flex-grow: 1;
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.breed-gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 100%;
+  max-width: 100%;
+  /*overflow-x: scroll;*/
+}
+
+.breed-gallery img {
+  max-width: 100%;
+  border: white .5em solid;
+  box-shadow: lightgrey 3px 3px 5px;
 }

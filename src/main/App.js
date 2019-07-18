@@ -5,12 +5,19 @@ class App extends React.Component {
   state = {
     loading: false,
     breedList: [],
-    selectedBreed: ''
+    selectedBreed: '',
+    imageList: [],
+    currentImageIndex: 0
   };
 
   onBreedSelected = (event) => {
     const selectedBreed = event.target.value;
     this.setState({ selectedBreed });
+
+    const [ breed, subtype ] = selectedBreed.split("-");
+    DogAPI.getImagesForBreed(breed, subtype)
+      .then((imageList) => this.setState({ imageList }))
+      .catch(console.error);
   };
 
   componentWillMount() {
@@ -21,7 +28,7 @@ class App extends React.Component {
 
   render () {
     // TODO: https://react-bootstrap.github.io/components/dropdowns/
-    const { breedList, selectedBreed } = this.state;
+    const { breedList, selectedBreed, imageList, currentImageIndex } = this.state;
 
     return (
       <main>
@@ -52,6 +59,24 @@ class App extends React.Component {
         {/* TODO: create another component to display results */}
         <section className="breed-data">
           <pre>Current selection: <b>{ selectedBreed || '-' }</b></pre>
+
+          {/* TODO: show only one image at a time! there are a lot of em to show at once... */}
+          <section className="breed-gallery">
+            { imageList.length > 0 && (
+              <div>
+                <p>
+                  <button
+                    onClick={() => this.setState({ currentImageIndex: currentImageIndex - 1 })}
+                    disabled={currentImageIndex <= 0}>Previous</button>
+                  <button
+                    onClick={() => this.setState({ currentImageIndex: currentImageIndex + 1 })}
+                    disabled={currentImageIndex >= imageList.length - 1}>Next</button>
+                </p>
+
+                <img src={imageList[currentImageIndex]} alt="" />
+              </div>
+            )}
+          </section>
         </section>
 
         <footer>
