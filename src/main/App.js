@@ -5,7 +5,12 @@ class App extends React.Component {
   state = {
     loading: false,
     breedList: [],
-    selectedBreed: null
+    selectedBreed: ''
+  };
+
+  onBreedSelected = (event) => {
+    const selectedBreed = event.target.value;
+    this.setState({ selectedBreed });
   };
 
   componentWillMount() {
@@ -16,17 +21,18 @@ class App extends React.Component {
 
   render () {
     // TODO: https://react-bootstrap.github.io/components/dropdowns/
-    const { breedList } = this.state;
+    const { breedList, selectedBreed } = this.state;
 
     return (
       <main>
 
+        <p>Current selection: { selectedBreed || '-' }</p>
+
         {/* TODO: move ddl to an standalone component */}
-        <select>
-          <option className="placeholder" disabled>- Choose a breed -</option>
+        <select value={this.state.selectedBreed} onChange={this.onBreedSelected}>
+          <option value="" className="placeholder" disabled>- Choose a breed -</option>
           {breedList.map(breed => {
             if (breed.subtypes.length > 0) {
-              console.log(`${breed.name} has ${breed.subtypes.length} subtypes`);
               return breed.subtypes.map(subtype => (
                 <option key={`${breed.name}-${subtype}`} value={`${breed.name}-${subtype}`}>
                   {subtype} {breed.name}
