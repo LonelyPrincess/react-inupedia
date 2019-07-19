@@ -1,6 +1,8 @@
 import React from 'react';
 import * as DogAPI from './utils/DogAPI';
 
+import BreedSelector from './components/BreedSelector';
+
 class App extends React.Component {
   state = {
     loading: false,
@@ -10,9 +12,12 @@ class App extends React.Component {
     currentImageIndex: 0
   };
 
-  onBreedSelected = (event) => {
-    const selectedBreed = event.target.value;
-    this.setState({ selectedBreed });
+  onBreedSelected = (selectedBreed) => {
+    this.setState({
+      selectedBreed,
+      imageList: [],
+      currentImageIndex: 0
+    });
 
     const [ breed, subtype ] = selectedBreed.split("-");
     DogAPI.getImagesForBreed(breed, subtype)
@@ -39,22 +44,10 @@ class App extends React.Component {
           <span>pedia</span>
         </header>
 
-        {/* TODO: move ddl to an standalone component */}
-        <select className="breed-selector"
-          value={this.state.selectedBreed} onChange={this.onBreedSelected}>
-          <option value="" className="placeholder" disabled>- Choose a breed -</option>
-          {breedList.map(breed => {
-            if (breed.subtypes.length > 0) {
-              return breed.subtypes.map(subtype => (
-                <option key={`${breed.name}-${subtype}`} value={`${breed.name}-${subtype}`}>
-                  {subtype} {breed.name}
-                </option>
-              ));
-            } else {
-              return <option key={breed.name} value={breed.name}>{breed.name}</option>;
-            }
-          })}
-        </select>
+        <BreedSelector
+          breedList={breedList}
+          selectedBreed={selectedBreed}
+          onBreedSelected={this.onBreedSelected}></BreedSelector>
 
         {/* TODO: create another component to display results */}
         <section className="breed-data">
