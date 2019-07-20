@@ -56,24 +56,28 @@ main {
   max-width: 450px;
 }
 
-section.breed-data {
-  flex-grow: 1;
-  padding: 1rem;
-  width: 100%;
-  text-align: center;
-}
-
 .breed-gallery {
+  flex-grow: 1;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   max-height: 100%;
   max-width: 100%;
-  /*overflow-x: scroll;*/
 }
 
 .breed-gallery img {
+  display: block;
   max-width: 100%;
   border: white .5em solid;
   box-shadow: lightgrey 3px 3px 5px;
+}
+
+.breed-gallery .btn-toolbar {
+  margin-bottom: 1em;
+  justify-content: center;
+}
+
+.breed-gallery .btn-toolbar button:not(:last-child) {
+  margin-right: 5px;
 }
