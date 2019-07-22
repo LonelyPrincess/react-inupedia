@@ -2,28 +2,19 @@ import React from 'react';
 import * as DogAPI from './utils/DogAPI';
 
 import Logo from './components/ui/Logo';
-import Loader from './components/ui/Loader';
 import BreedSelector from './components/BreedSelector';
 import BreedImageGallery from './components/BreedImageGallery';
 
 class App extends React.Component {
   state = {
-    loading: false,
-    breedList: [],
     selectedBreed: '',
-    imageList: []
+    breedList: []
   };
 
   onBreedSelected = (selectedBreed) => {
     this.setState({
-      selectedBreed,
-      imageList: []
+      selectedBreed
     });
-
-    const [ breed, subtype ] = selectedBreed.split("-");
-    DogAPI.getImagesForBreed(breed, subtype)
-      .then((imageList) => this.setState({ imageList }))
-      .catch(console.error);
   };
 
   componentWillMount() {
@@ -33,7 +24,7 @@ class App extends React.Component {
   }
 
   render () {
-    const { breedList, selectedBreed, imageList } = this.state;
+    const { breedList, selectedBreed } = this.state;
 
     return (
       <main>
@@ -48,10 +39,7 @@ class App extends React.Component {
         </header>
 
         {/* --- Image gallery --- */}
-        <BreedImageGallery key={selectedBreed} imageList={imageList} />
-
-        {/* --- Loader --- */}
-        <Loader show={false} message="Wait a second, we're looking for images." />
+        <BreedImageGallery key={selectedBreed} selectedBreed={selectedBreed} />
 
       </main>
     );
