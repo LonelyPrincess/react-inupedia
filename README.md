@@ -1,68 +1,68 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Sample: Inupedia
 
-## Available Scripts
+[![Build Status](https://travis-ci.org/LonelyPrincess/react-inupedia.svg?branch=master)](https://travis-ci.org/LonelyPrincess/react-inupedia)
+[![Inline docs](http://inch-ci.org/github/LonelyPrincess/reactnd-project-myreads.svg?branch=master&style=shields)](http://inch-ci.org/github/LonelyPrincess/react-inupedia)
+[![Live demo](https://img.shields.io/badge/live%20demo-available-blue.svg)](https://lonelyprincess.github.io/react-inupedia)
 
-In the project directory, you can run:
+This is the final project for the first module of the [Udacity's React Nanodegree](https://www.udacity.com/course/react-nanodegree--nd019), "React Fundamentals".
 
-### `npm start`
+## Project description
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This is a simple application that retrieves a list of dog breeds and allows the user to see images for the one of their choice.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Installation and deployment
 
-### `npm test`
+### Pre-requisites
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Before being able to run this application, you must have [Node Package Manager](https://nodejs.org/en/) or [Yarn](https://yarnpkg.com/) installed on your system.
 
-### `npm run build`
+### Get the application running
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If you have all the required software installed, the first step to run this application is to install all of its dependencies and start the application's server.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+To do so, you must open a console and, once located into the project's root directory, run the following commands:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# Install all project's dependencies
+> npm install
 
-### `npm run eject`
+# Run application's server
+> npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+These instructions assume that you've installed [Node Package Manager](https://nodejs.org/en/). If you are using [Yarn](https://yarnpkg.com/) instead, just replace `npm` with `yarn` in the commands listed above.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+After running the `start` command, the console output should tell you at which URL is the application running.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+The app is running at:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  # URL where the app is running
+  http://localhost:3000/
+```
 
-## Learn More
+Now you only have to enter that URL into your favourite browser, and that's it! You're all set!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Project structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The project folder structure is as follows:
 
-### Code Splitting
+```bash
+├── public
+└── src
+    ├── main
+    ├── res
+        ├── images
+        ├── styles
+    ├── test
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Two folders can be found at the project's root path, being the `src` the most important one as it is the place where all of the application source code will live. The other one, `public`, will contain public resources that can be directly accessed via a direct request to the server, such as the application _favicon_ and the _index.html_ file.
 
-### Analyzing the Bundle Size
+The `src` directory is divided in three parts, each one with a different purpose:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- `main` - As the name implies, this folder contains the main code for the project, being it the wrapper for all the files where the app's functionality is implemented.
 
-### Making a Progressive Web App
+- `res` - Resources to be used by the application, including images, stylesheets or mock data files that can be used for testing purposes.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- `test` - Code for unit testing is wrapped into this folder.
