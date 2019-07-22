@@ -6,7 +6,8 @@ import * as DogAPI from '../utils/DogAPI';
 class BreedSelector extends React.Component {
 
   state = {
-    breedList: []
+    breedList: [],
+    selectedBreed: ''
   };
 
   componentWillMount() {
