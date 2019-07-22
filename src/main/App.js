@@ -25,6 +25,7 @@ class App extends React.Component {
 
           {/* --- Breed selector --- */}
           <BreedSelector
+            selectedBreed={selectedBreed}
             onBreedSelected={this.onBreedSelected} />
         </header>
 
