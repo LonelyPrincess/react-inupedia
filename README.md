@@ -4,8 +4,6 @@
 [![Inline docs](http://inch-ci.org/github/LonelyPrincess/reactnd-project-myreads.svg?branch=master&style=shields)](http://inch-ci.org/github/LonelyPrincess/react-inupedia)
 [![Live demo](https://img.shields.io/badge/live%20demo-available-blue.svg)](https://lonelyprincess.github.io/react-inupedia)
 
-This is the final project for the first module of the [Udacity's React Nanodegree](https://www.udacity.com/course/react-nanodegree--nd019), "React Fundamentals".
-
 ## Project description
 
 This is a simple application that retrieves a list of dog breeds and allows the user to see images for the one of their choice.
