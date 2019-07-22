@@ -6,25 +6,9 @@
  * @author Sara Hernández Suárez <sara.her.su@gmail.com>
  */
 
+import { fetchJson } from './HttpUtils';
+
 const apiBaseUrl = 'https://dog.ceo/api';
-
-const headers = {
-  'Accept': 'application/json',
-  'Content-type': 'application/json'
-};
-
-// Handle http errors so promise is rejected when needed
-const fetchJson = (url, options = {}) => {
-  return fetch(url, { headers, ...options })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        console.error(`HTTP request failed with code ${res.status} - ${res.statusText}`);
-        throw new Error(res.statusText);
-      }
-    });
-};
 
 // TODO: add comments to these methods
 const performApiRequest = (url, options) => {
@@ -48,6 +32,7 @@ const parseApiResponse = (data) => {
  */
 export const getBreedList = () => {
   //return performApiRequest(`${apiBaseUrl}/breeds/list/all`);
+
   return performApiRequest(`./data/breeds.json`)
     .then(data => Object.keys(data)
       .map(breed => ({ name: breed, subtypes: data[breed] })));
@@ -60,7 +45,8 @@ export const getBreedList = () => {
  * @returns {Promise} Promise object with an array of image URLs.
  */
 export const getImagesForBreed = (breed, subtype) => {
-  //return performApiRequest(`${apiBaseUrl}/breed/${breed}/images`);
+  let subtypePath = subtype ? `/${subtype}` : ``;
+  //return performApiRequest(`${apiBaseUrl}/breed/${breed}${subtypePath}/images`);
   return performApiRequest(`./data/images.json`);
 };
 
