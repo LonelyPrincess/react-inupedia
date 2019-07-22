@@ -37,14 +37,14 @@ main {
   justify-content: center;
 }
 
+/* --- Image gallery --- */
+
 .breed-gallery {
   flex-grow: 1;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  max-height: 100%;
-  max-width: 100%;
 }
 
 .breed-gallery img {
@@ -61,4 +61,31 @@ main {
 
 .breed-gallery .btn-toolbar button:not(:last-child) {
   margin-right: 5px;
+}
+
+/* --- No results message --- */
+
+.no-results {
+  opacity: .5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-results .icon {
+  width: 10rem;
+  height: 10rem;
+  display: block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url('../images/dog-house.svg');
+}
+
+.no-results .text {
+  color: black;
+  font-size: 1.25rem;
+  margin: 1rem 0 0 0;
+  font-family: 'Underdog', cursive;
 }
