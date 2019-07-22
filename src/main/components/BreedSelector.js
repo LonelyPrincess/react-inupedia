@@ -1,7 +1,19 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 
+import * as DogAPI from '../utils/DogAPI';
+
 class BreedSelector extends React.Component {
+
+  state = {
+    breedList: []
+  };
+
+  componentWillMount() {
+    DogAPI.getBreedList()
+      .then((breedList) => this.setState({ breedList }))
+      .catch(console.error);
+  }
 
   onBreedSelected = (event) => {
     const selectedBreed = event.target.value;
@@ -9,11 +21,10 @@ class BreedSelector extends React.Component {
   };
 
   render() {
-    const { breedList, selectedBreed } = this.props;
+    const { breedList, selectedBreed } = this.state;
 
     return (
       <Form.Group controlId="breedSelector" className="breed-selector">
-        {/*<Form.Label>Choose a breed</Form.Label>*/}
         <Form.Control as="select" value={selectedBreed} onChange={this.onBreedSelected}>
           <option value="" className="placeholder" disabled>- Choose a breed -</option>
           {breedList.map(breed => {
@@ -24,7 +35,11 @@ class BreedSelector extends React.Component {
                 </option>
               ));
             } else {
-              return <option key={breed.name} value={breed.name}>{breed.name}</option>;
+              return (
+                <option key={breed.name} value={breed.name}>
+                  {breed.name}
+                </option>
+              );
             }
           })}
         </Form.Control>
