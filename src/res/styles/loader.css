@@ -9,7 +9,7 @@
 .loader-wrapper::before {
   content: '';
   background: white;
-  opacity: .75;
+  opacity: .95;
   z-index: -1;
 }
 
@@ -43,7 +43,6 @@
 .loading-details {
   margin: 0;
   font-size: 1rem;
-  color: lightsteelblue;
 }
 
 @keyframes shake {
