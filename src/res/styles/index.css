@@ -25,6 +25,10 @@ header {
   max-width: 450px;
 }
 
+.breed-selector option:not(.placeholder) {
+  text-transform: capitalize;
+}
+
 /* --- Page content --- */
 
 main {
