@@ -31,9 +31,7 @@ const parseApiResponse = (data) => {
  * @returns {Promise} Promise object with a collection of breeds.
  */
 export const getBreedList = () => {
-  //return performApiRequest(`${apiBaseUrl}/breeds/list/all`);
-
-  return performApiRequest(`./data/breeds.json`)
+  return performApiRequest(`${apiBaseUrl}/breeds/list/all`)
     .then(data => Object.keys(data)
       .map(breed => ({ name: breed, subtypes: data[breed] })));
 };
@@ -46,8 +44,5 @@ export const getBreedList = () => {
  */
 export const getImagesForBreed = (breed, subtype) => {
   let subtypePath = subtype ? `/${subtype}` : ``;
-  //return performApiRequest(`${apiBaseUrl}/breed/${breed}${subtypePath}/images`);
-  return performApiRequest(`./data/images.json`);
+  return performApiRequest(`${apiBaseUrl}/breed/${breed}${subtypePath}/images`);
 };
-
-// TODO: for sub-breeds -> https://dog.ceo/api/breed/retriever/chesapeake/images
