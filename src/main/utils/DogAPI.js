@@ -10,6 +10,8 @@ import { fetchJson } from './HttpUtils';
 
 const apiBaseUrl = 'https://dog.ceo/api';
 
+const useLocalData = true;
+
 /**
  * Make a request to the API and parse the response.
  *
@@ -41,7 +43,11 @@ const parseApiResponse = (data) => {
  * @returns {Promise} Promise object with a collection of breeds.
  */
 export const getBreedList = () => {
-  return performApiRequest(`${apiBaseUrl}/breeds/list/all`)
+  const url = useLocalData
+    ? `data/breeds.json`
+    : `${apiBaseUrl}/breeds/list/all`;
+
+    return performApiRequest(url)
     .then(data => Object.keys(data)
       .map(breed => ({ name: breed, subtypes: data[breed] })));
 };
@@ -54,5 +60,9 @@ export const getBreedList = () => {
  */
 export const getImagesForBreed = (breed, subtype) => {
   let subtypePath = subtype ? `/${subtype}` : ``;
-  return performApiRequest(`${apiBaseUrl}/breed/${breed}${subtypePath}/images`);
+  const url = useLocalData
+    ? `data/images.json`
+    : `${apiBaseUrl}/breed/${breed}${subtypePath}/images`;
+
+  return performApiRequest(url);
 };
