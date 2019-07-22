@@ -1,6 +1,8 @@
 import React from 'react';
 import * as DogAPI from './utils/DogAPI';
 
+import Logo from './components/ui/Logo';
+import Loader from './components/ui/Loader';
 import BreedSelector from './components/BreedSelector';
 import BreedImageGallery from './components/BreedImageGallery';
 
@@ -35,22 +37,21 @@ class App extends React.Component {
 
     return (
       <main>
+        <header>
+          <Logo />
 
-        {/* --- Header (TODO: move to a different component) --- */}
-        <header className="logo">
-          <span>inu</span>
-          <i className="icon-test"></i>
-          <span>pedia</span>
+          {/* --- Breed selector --- */}
+          <BreedSelector
+            breedList={breedList}
+            selectedBreed={selectedBreed}
+            onBreedSelected={this.onBreedSelected}></BreedSelector>
         </header>
-
-        {/* --- Breed selector --- */}
-        <BreedSelector
-          breedList={breedList}
-          selectedBreed={selectedBreed}
-          onBreedSelected={this.onBreedSelected}></BreedSelector>
 
         {/* --- Image gallery --- */}
         <BreedImageGallery key={selectedBreed} imageList={imageList} />
+
+        {/* --- Loader --- */}
+        <Loader show={false} message="Wait a second, we're looking for images." />
 
       </main>
     );

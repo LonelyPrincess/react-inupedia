@@ -11,8 +11,21 @@ html, body, #root {
 }
 
 body {
-  background: lightgoldenrodyellow;
+  background: #e6e6e6;
 }
+
+/* --- Header --- */
+header {
+  width: 100%;
+}
+
+.breed-selector {
+  width: 100%;
+  margin: auto;
+  max-width: 450px;
+}
+
+/* --- Page content --- */
 
 main {
   width: 100%;
@@ -22,38 +35,6 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo {
-  color: #3086cd;
-  font-size: 50px;
-  margin-bottom: 2rem;
-  font-family: 'Underdog', cursive;
-}
-
-.logo span:first-child {
-  color: #ffb531;
-}
-
-.icon-test {
-  width: 70px;
-  height: 70px;
-  background-size: contain;
-  background-image: url('../images/shiba.svg');
-  background-position-x: center;
-  background-position-y: bottom;
-  background-repeat: no-repeat;
-}
-
-.breed-selector {
-  width: 100%;
-  max-width: 450px;
 }
 
 .breed-gallery {
