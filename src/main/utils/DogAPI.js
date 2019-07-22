@@ -10,13 +10,23 @@ import { fetchJson } from './HttpUtils';
 
 const apiBaseUrl = 'https://dog.ceo/api';
 
-// TODO: add comments to these methods
+/**
+ * Make a request to the API and parse the response.
+ *
+ * @param url - URL to which the request will be send.
+ * @param options - Object with request configuration (type of request,
+ *  data to send along with it and so on)
+ */
 const performApiRequest = (url, options) => {
   return fetchJson(url, options)
     .then(parseApiResponse);
 };
 
-// Handle api response format to identify errors and throw exceptions if needed
+/**
+ * Handle API response format to identify errors and throw exceptions if needed
+ *
+ * @param data - JSON data obtained as a response to a request.
+ */
 const parseApiResponse = (data) => {
   if (data.status === 'success') {
     return data.message;
