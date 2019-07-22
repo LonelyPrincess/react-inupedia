@@ -42,12 +42,12 @@ class BreedImageGallery extends React.Component {
         {imageList.length > 0 && (
           <div className="search-results">
             <ButtonToolbar>
-              <Button variant="primary" size="sm"
+              <Button variant="primary" size="sm" className="prev"
                 onClick={() => this.setState({ currentIndex: currentIndex - 1 })}
-                disabled={currentIndex <= 0}>Previous</Button>
-              <Button variant="warning" size="sm"
+                disabled={currentIndex <= 0}>🡰 <span>Previous</span></Button>
+              <Button variant="warning" size="sm" className="next"
                 onClick={() => this.setState({ currentIndex: currentIndex + 1 })}
-                disabled={currentIndex >= imageList.length - 1}>Next</Button>
+                disabled={currentIndex >= imageList.length - 1}><span>Next</span> 🡲</Button>
             </ButtonToolbar>
 
             <img src={imageList[currentIndex]} alt="" />

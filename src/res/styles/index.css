@@ -58,12 +58,43 @@ main {
 }
 
 .breed-gallery .btn-toolbar {
-  margin-bottom: 1em;
+  margin: 1em;
   justify-content: center;
+}
+
+.breed-gallery .btn-toolbar button,
+.breed-gallery .btn-toolbar button:hover,
+.breed-gallery .btn-toolbar button:focus,
+.breed-gallery .btn-toolbar button:active {
+  border: 0;
+  color: white;
+}
+
+.breed-gallery .btn-toolbar button span {
+  width: 5em;
+  display: inline-block;
 }
 
 .breed-gallery .btn-toolbar button:not(:last-child) {
   margin-right: 5px;
+}
+
+.breed-gallery .btn-toolbar button.prev {
+  text-align: left;
+  background: #3086cd;
+}
+
+.breed-gallery .btn-toolbar button.prev span {
+  text-align: right;
+}
+
+.breed-gallery .btn-toolbar button.next {
+  text-align: right;
+  background: #ffb531;
+}
+
+.breed-gallery .btn-toolbar button.next span {
+  text-align: left;
 }
 
 /* --- No results message --- */
