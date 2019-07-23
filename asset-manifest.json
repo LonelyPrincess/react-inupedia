@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/react-inupedia/static/css/main.6d0bd223.chunk.css",
+    "main.js": "/react-inupedia/static/js/main.b25a85b3.chunk.js",
+    "main.js.map": "/react-inupedia/static/js/main.b25a85b3.chunk.js.map",
+    "runtime~main.js": "/react-inupedia/static/js/runtime~main.90be6720.js",
+    "runtime~main.js.map": "/react-inupedia/static/js/runtime~main.90be6720.js.map",
+    "static/css/2.266e55a5.chunk.css": "/react-inupedia/static/css/2.266e55a5.chunk.css",
+    "static/js/2.7579b88f.chunk.js": "/react-inupedia/static/js/2.7579b88f.chunk.js",
+    "static/js/2.7579b88f.chunk.js.map": "/react-inupedia/static/js/2.7579b88f.chunk.js.map",
+    "index.html": "/react-inupedia/index.html",
+    "precache-manifest.e2aa3cec6d48c43af074585ee3b11425.js": "/react-inupedia/precache-manifest.e2aa3cec6d48c43af074585ee3b11425.js",
+    "service-worker.js": "/react-inupedia/service-worker.js",
+    "static/css/2.266e55a5.chunk.css.map": "/react-inupedia/static/css/2.266e55a5.chunk.css.map",
+    "static/css/main.6d0bd223.chunk.css.map": "/react-inupedia/static/css/main.6d0bd223.chunk.css.map",
+    "static/media/loader.css": "/react-inupedia/static/media/bone.7f319a6d.svg",
+    "static/media/index.css": "/react-inupedia/static/media/dog-house.e14d1fe7.svg",
+    "static/media/logo.css": "/react-inupedia/static/media/shiba.d31860a5.svg"
+  }
+}
