@@ -1,7 +1,12 @@
 {
   "name": "react-inupedia",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "author": {
+    "name": "Sara Hernández",
+    "email": "sara.her.su@gmail.com",
+    "url": "http://github.com/LonelyPrincess"
+  },
   "dependencies": {
     "bootstrap": "^4.3.1",
     "react": "^16.8.6",
@@ -32,7 +37,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://LonelyPrincess.github.com/react-inupedia",
+  "homepage": "https://lonelyprincess.github.io/react-inupedia",
   "devDependencies": {
     "gh-pages": "^2.0.1"
   }
